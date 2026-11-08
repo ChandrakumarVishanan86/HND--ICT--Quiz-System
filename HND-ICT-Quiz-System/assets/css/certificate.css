@@ -1,0 +1,75 @@
+/* Certificate: fixed A4 landscape artboard (1123 x 794 px = 297 x 210 mm at 96 dpi) */
+.cert-page { background: #DDE3EC; min-height: 100vh; }
+.cert-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    max-width: 1123px; margin: 0 auto; padding: 14px 16px;
+}
+.stage { max-width: 1123px; margin: 0 auto 28px; padding: 0; overflow: hidden; position: relative; }
+
+.cert {
+    width: 1123px; height: 794px; position: relative; transform-origin: top left;
+    background: #FDFCF8; color: #0E2A47;
+    box-shadow: 0 18px 50px rgba(14, 42, 71, .22);
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+.cert .frame { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cert .inner {
+    position: absolute; inset: 78px 110px 70px; text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+}
+.cert .issuer { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: #8A6A1F; }
+.cert .title  { margin: 6px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 58px; line-height: 1.05; letter-spacing: .01em; color: #0E2A47; }
+.cert .line   { margin: 14px 0 0; font-size: 22px; font-style: italic; font-weight: 600; color: #3D5169; }
+.cert .line.small { font-size: 20px; margin-top: 10px; }
+.cert .line b { font-style: normal; color: #0E2A47; font-weight: 700; }
+.cert .name {
+    margin: 4px 0 0; font-family: 'Pinyon Script', 'Brush Script MT', cursive; font-weight: 400;
+    font-size: 78px; line-height: 1.15; color: #0E2A47;
+    padding: 0 30px 2px; border-bottom: 2px solid #C9A24A; max-width: 100%;
+}
+.cert .name.long { font-size: 58px; }
+.cert .module { margin: 6px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 40px; line-height: 1.12; color: #0E2A47; }
+
+.cert .mods {
+    list-style: none; margin: 10px 0 0; padding: 0; width: 100%; max-width: 760px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3px 40px; text-align: left;
+    font-size: 18px; font-weight: 600; color: #26394F;
+}
+.cert .mods li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px dotted #C9A24A; }
+.cert .mods b { color: #0E2A47; }
+
+.cert .foot {
+    margin-top: auto; width: 100%; display: grid; grid-template-columns: 1fr 130px 1fr; align-items: end; gap: 20px;
+}
+.cert .sig { display: flex; flex-direction: column; align-items: center; }
+.cert .sig svg { width: 150px; height: 44px; }
+.cert .sig .date { font-size: 24px; font-weight: 700; height: 44px; line-height: 44px; }
+.cert .sig i { display: block; width: 210px; border-top: 1.5px solid #0E2A47; margin-top: 2px; }
+.cert .sig small { font-size: 16px; font-weight: 600; color: #3D5169; margin-top: 3px; letter-spacing: .04em; }
+.cert .seal svg { width: 118px; height: 118px; display: block; margin: 0 auto -6px; filter: drop-shadow(0 3px 4px rgba(14, 42, 71, .25)); }
+
+.cert .code { margin: 14px 0 0; font-size: 15px; font-weight: 600; color: #3D5169; }
+.cert .code b { color: #0E2A47; letter-spacing: .06em; }
+.cert .note { margin: 2px 0 0; font-size: 13px; font-style: italic; color: #6C7C90; }
+
+
+/* Programme certificate carries a list of eight modules, so spacing is tighter to stay on one page */
+.cert.prog .inner { inset: 68px 110px 62px; }
+.cert.prog .title { font-size: 50px; }
+.cert.prog .line { margin-top: 8px; font-size: 20px; }
+.cert.prog .line.small { margin-top: 8px; font-size: 19px; }
+.cert.prog .name { font-size: 64px; }
+.cert.prog .name.long { font-size: 50px; }
+.cert.prog .module { font-size: 34px; margin-top: 2px; }
+.cert.prog .mods { max-width: 860px; font-size: 16.5px; gap: 2px 36px; margin-top: 8px; }
+.cert.prog .code { margin-top: 10px; }
+.cert.prog .sig svg, .cert.prog .sig .date { height: 38px; line-height: 38px; }
+.cert.prog .seal svg { width: 104px; height: 104px; }
+
+@page { size: A4 landscape; margin: 0; }
+@media print {
+    html, body { margin: 0; background: #fff !important; }
+    .cert-bar { display: none !important; }
+    .stage { margin: 0; max-width: none; height: 794px !important; overflow: visible; }
+    .cert { transform: none !important; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
